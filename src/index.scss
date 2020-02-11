@@ -1,0 +1,182 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-weight: 600;
+  font-size: 2.5vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.wrap {
+  width: 100vw;
+  height: 100vh;
+  background: url(./img/side-bg.jpg) center;
+  background-size: 135vw 100vh;
+}
+
+.backgroundScreen {
+  margin-top: 0px;
+  margin: auto;
+  width: 65vw;
+  height: 100vh;
+  background: no-repeat url(./img/background-screen.png) center;
+  background-size: 65vw 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.header {
+  position: relative;
+  width: 55vw;
+  height: 25vh;
+  background: no-repeat url(./img/header.png) center 20px;
+  background-size: 55vw 20vh;
+  z-index: 5;
+  align-self: center;
+}
+
+.background {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50vw;
+  height: 60vh;
+  background: no-repeat url(./img/background.png) center;
+  background-size: 50vw 60vh;
+  z-index: 3;
+  align-self: center;
+  position: relative;
+  bottom: 5vh;
+}
+
+.time {
+  position: relative;
+  color: white;
+  margin: 0px auto;
+  font-size: 3.5vh;
+  bottom: 7vh;
+  left: -2vw;
+  p {
+    margin: 0px;
+  }
+  .time-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: cenhter;
+    span{
+      font-size: 0.5em;
+      margin-right: 12px;
+    }
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  position: relative;
+  width: 80%;
+  height: 100px;
+  margin: 1.5vh auto;
+  bottom: 40px;
+  // прогресс бар
+  .progress-block {
+    align-self: flex-end;
+    width: 50%;
+    margin-left: 20px;
+    .progress-bar {
+      width: 125%;
+      background-color: rgb(90, 95, 91);
+      border: 2px solid rgb(143, 224, 154);
+      border-radius: 20px;
+      .progress {
+        height: 15px;
+        border-radius: 20px;
+        background-color: rgb(121, 138, 83);
+      }
+    }
+  }
+  // появление кнопки
+  .button {
+    align-self: flex-end;
+    border: 1px solid black;
+    background-color: rgb(184, 182, 107);
+    width: 100px;
+    height: 20px;
+    border-radius: 5px;
+    margin-left: 80px;
+    font-size: 1vh;
+    box-shadow: inset 0px 0px 5px 2px rgba(0, 0, 0, 0.75);
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  // картинки
+  .img-time {
+    background: no-repeat url(./img/task-time.png);
+  }
+  .img-kings {
+    background: no-repeat url(./img/task-kings.png);
+  }
+  .img-tournaments {
+    background: no-repeat url(./img/task-tournaments.png);
+  }
+  .img-tournaments,
+  .img-kings,
+  .img-time {
+    width: 6vw;
+    height: 14vh;
+    transform: rotate(15deg);
+    background-size: contain;
+    &:hover {
+      transform: rotate(0deg);
+    }
+  }
+}
+
+//  спинер загрузки
+.spinner {
+  animation: rotate 2s linear infinite;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+  width: 50px;
+  height: 50px;
+
+  & .path {
+    stroke: hsl(210, 70, 75);
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+// таймер
